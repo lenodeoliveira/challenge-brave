@@ -1,0 +1,19 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --delay 1200 --watch db.json --static ./images",
+    "start:no-delay": "json-server --watch db.json --static ./images"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.brave.ag:brave-challenges/frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}
