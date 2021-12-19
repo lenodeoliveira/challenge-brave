@@ -1,4 +1,5 @@
 
+const { Op } = require("sequelize");
 const { Contact } = require('../models')
 
 const validateEmail = async (email) => {
@@ -45,12 +46,73 @@ const addContact = async (name, email) => {
     return newContact;
 };
 
-const getAllContacts = async () => {
-    const contacts = await Contact.findAll();
-    return contacts;
+const getAllContacts = async (query, order) => {
+    let retrieveContacts;
+    let filters = order ? order : 'DESC' ;
+
+    if(query) {
+        const queryString = `%${query}%`
+       retrieveContacts = Contact.findOne({
+        where: {
+            name: {
+              [Op.like]: queryString
+            }
+          },
+        });
+    } else {
+        retrieveContacts = await Contact.findAndCountAll({
+            order: [['name', `${filters}`]],
+        });
+    }
+
+    return retrieveContacts;
 };
+
+const getContactById = async (id) => {
+    const contactById = await Contact.findOne({ where: { id }});
+    if (contactById === null || contactById === undefined) {
+        return {
+          code: 404,
+          message: 'contact not found',
+        };
+      }
+    return contactById;
+
+};
+
+const updateContact = async (id, name, email) => {
+    const [updatedContact] = await Contact.update(
+        { name, email },
+        { where: { id } },
+      );
+
+      if(!updatedContact) {
+        return {
+            code: 404,
+            message: 'contact not found',
+          };
+      }
+};
+
+const deleteContact = async (id) => {
+    const contactById = await Contact.findOne({ where: { id }});
+    if (contactById === null || contactById === undefined) {
+        return {
+          code: 404,
+          message: 'contact not found',
+        };
+      }
+
+      const deleteContact = await Contact.destroy(
+        { where: { id } },
+      );
+      console.log('DELETE', deleteContact)
+}
 
 module.exports = {
     addContact,
-    getAllContacts
+    getAllContacts,
+    getContactById,
+    updateContact,
+    deleteContact
 }
