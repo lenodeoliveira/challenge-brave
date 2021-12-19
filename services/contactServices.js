@@ -106,7 +106,6 @@ const deleteContact = async (id) => {
       const deleteContact = await Contact.destroy(
         { where: { id } },
       );
-      console.log('DELETE', deleteContact)
 }
 
 module.exports = {

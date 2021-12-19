@@ -1,5 +1,18 @@
 # Desafio - Back-end
 
+## Criar o banco
+npx sequelize db:create
+
+## execute as migrations
+npx sequelize db:migrate
+
+## popular as tabelas
+npx sequelize db:seed:all
+
+
+## rodar o servidor
+npx nodemon index.js    
+
 ## O Desafio
 
 ![](home.png)

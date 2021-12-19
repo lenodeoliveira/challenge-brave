@@ -10,14 +10,22 @@ const addArticles = rescue(async (req, res, next) => {
     const newArticle = await articleServices.addArticles(
         title, content, url, big, hot
     );
-  
+
     if (newArticle.message) return next(newArticle);
-  
+
     res.status(201).json(newArticle);
-  });
+});
 
 const getAllArticles = rescue(async (req, res, _next) => {
-    const articles = await articleServices.getAllArticles();
+    let articles;
+
+    if (req.query) {
+        const { title, order } = req.query;
+        articles = await articleServices.getAllArticles(title, order);
+    } else {
+        articles = await articleServices.getAllArticles();
+    }
+
     res.status(200).json(articles);
 });
 
@@ -36,10 +44,10 @@ const upload = multer({
     limits: { fileSize: '1000000' },
     fileFilter: (req, file, cb) => {
         const fileTypes = /jpeg|jpg|png|gif/
-        const mimeType = fileTypes.test(file.mimetype)  
+        const mimeType = fileTypes.test(file.mimetype)
         const extname = fileTypes.test(path.extname(file.originalname))
 
-        if(mimeType && extname) {
+        if (mimeType && extname) {
             return cb(null, true)
         }
         cb('Give proper files formate to upload')

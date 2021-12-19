@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { Article } = require('../models')
 
 
@@ -31,9 +32,26 @@ const addArticles = async (title, content, url, big, hot) => {
     return newArticle;
 };
 
-const getAllArticles = async () => {
-    const articles = await Article.findAll();
-    return articles;
+const getAllArticles = async (query, order) => {
+    let retrieveArticles;
+    let filters = order ? order : 'DESC';
+  
+    if (query) {
+      const queryString = `%${query}%`
+      retrieveArticles = Article.findOne({
+        where: {
+          title: {
+            [Op.like]: queryString
+          }
+        },
+      });
+    } else {
+      retrieveArticles = await Article.findAndCountAll({
+        order: [['title', `${filters}`]],
+      });
+    }
+  
+    return retrieveArticles;
 };
 
 module.exports = {
