@@ -16,7 +16,7 @@ const addArticles = rescue(async (req, res, next) => {
 
     if (newArticle.message) return next(newArticle);
 
-    res.status(201).json(newArticle);
+    res.status(201).json();
 });
 
 const getAllArticles = rescue(async (req, res, _next) => {
