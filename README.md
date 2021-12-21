@@ -12,14 +12,14 @@ Desafio realizado utilizando as seguintes tecnologias:
 ### Criar o banco
 `npx sequelize db:create`
 
-### execute as migrations
+### Execute as migrations
 `npx sequelize db:migrate`
 
-### popular as tabelas
+### Popular as tabelas
 `npx sequelize db:seed:all`
 
 
-### rodar o servidor
+### Rodar o servidor
 `npm start`
 
 ### Rodar os tests 
@@ -28,7 +28,7 @@ Desafio realizado utilizando as seguintes tecnologias:
 
 ## Rotas:
 ## `/articles`
-| método   |     endpoint  | status code
+| Method   |     endpoint  | status code
 |----------|:-------------:|-----------:
 | GET      | /articles     | 200
 
@@ -53,7 +53,7 @@ Desafio realizado utilizando as seguintes tecnologias:
 ```
 <hr/>
 
-| método   |     endpoint  | status code
+| Method   |     endpoint  | status code
 |----------|---------------|-----
 | GET      | /articles/:id | 200
 
