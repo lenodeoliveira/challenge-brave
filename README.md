@@ -278,7 +278,7 @@ The request has no body response.
 #### Response
 The request has no body response.
 
-</hr>
+<hr/>
 
 Ficaria extremamente feliz em receber algum feedback :smiley: <br>
 **Contato**
