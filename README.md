@@ -9,6 +9,8 @@ Desafio realizado utilizando as seguintes tecnologias:
 * Chai;
 * Sequelize-test-helpers.
 
+### Instale as dependências
+`npm install`
 ### Criar o banco
 `npx sequelize db:create`
 
