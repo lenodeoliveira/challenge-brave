@@ -5,6 +5,9 @@ const multer = require('multer')
 const path = require('path')
 
 const addArticles = rescue(async (req, res, next) => {
+
+    console.info('REQUEST ADD ARTICLES TEST', req.body)
+
     const { title, content, big, hot } = req.body;
     const url = req.file.path
     const newArticle = await articleServices.addArticles(
