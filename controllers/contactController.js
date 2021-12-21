@@ -17,8 +17,8 @@ const updateContact = rescue(async (req, res, next) => {
       const { name, email } = req.body;
       const { id } = req.params;
 
-      const updatedContact = contactServices.updateContact(id, name, email)
-      if (updatedContact.message) return next(updatedContact);
+      const updatedContact = await contactServices.updateContact(id, name, email)
+      if (updatedContact && updatedContact.message) return next(updatedContact);
 
       return res.status(204).json({});
 
@@ -46,9 +46,10 @@ const getContactById = rescue(async (req, res, next) => {
   res.status(200).json(contact);
 });
 
-const deleteContact = rescue(async (req, res, _next) => {
+const deleteContact = rescue(async (req, res, next) => {
   const { id } = req.params;
-  await contactServices.deleteContact(id);
+  const deleteContact = await contactServices.deleteContact(id);
+  if (deleteContact && deleteContact.message) return next(deleteContact);
   res.status(204).send();
 });
 

@@ -37,16 +37,19 @@ const updateHero = rescue(async (req, res, next) => {
   const { content } = req.body;
   const { id } = req.params;
 
-  const updatedHero = herosServices.updateHero(id, content)
-  if (updatedHero.message) return next(updatedHero);
+  const updatedHero = await herosServices.updateHero(id, content)
+
+  if (updatedHero) return next(updatedHero);
 
   return res.status(204).json();
 
 });
 
-const deleteHero = rescue(async (req, res, _next) => {
+const deleteHero = rescue(async (req, res, next) => {
   const { id } = req.params;
-  await herosServices.deleteHero(id);
+  const deleteHero = await herosServices.deleteHero(id);
+  if (deleteHero) return next(deleteHero);
+
   res.status(204).send();
 });
 
