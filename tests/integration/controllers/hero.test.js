@@ -119,7 +119,7 @@ describe('Routes in /hero', () => {
           content: "content test updated",
         });
       const { status, body: { message } } = heroNotFound;
-      console.info('status test code', heroNotFound)
+
       expect(status).to.be.equals(404);
       expect(message).to.be.equals('hero not found');
     });
@@ -128,7 +128,7 @@ describe('Routes in /hero', () => {
       const heroNotFound = await chai.request(app)
         .delete('/hero/1111')
       const { status, body: { message } } = heroNotFound;
-      console.info('status test code', heroNotFound)
+
       expect(status).to.be.equals(404);
       expect(message).to.be.equals('hero not found');
     });
