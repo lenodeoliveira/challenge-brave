@@ -23,3 +23,5 @@ app.use(error);
 app.listen(PORT, () => {
   console.log(`API rodando na porta ${PORT}`);
 });
+
+module.exports = app;

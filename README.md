@@ -11,7 +11,7 @@ npx sequelize db:seed:all
 
 
 ## rodar o servidor
-npx nodemon index.js    
+npm start
 
 ## O Desafio
 
