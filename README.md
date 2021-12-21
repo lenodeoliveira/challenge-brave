@@ -28,7 +28,7 @@ Desafio realizado utilizando as seguintes tecnologias:
 `npm test`
 
 
-## Rotas:
+## Routes:
 ## `/articles`
 | Method   |     endpoint  | status code
 |----------|:-------------:|-----------:
