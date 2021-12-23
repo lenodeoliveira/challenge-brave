@@ -283,7 +283,6 @@ The request has no body response.
 
 <hr/>
 
-Ficaria extremamente feliz em receber algum feedback :smiley: <br>
 **Contato**
 <br>
 <br>
