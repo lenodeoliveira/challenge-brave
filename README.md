@@ -56,10 +56,11 @@ Desafio realizado utilizando as seguintes tecnologias:
 ```
 <hr/>
 
-| Method   |     endpoint  | status code
-|----------|---------------|-----
-| GET      | /articles/:id | 200
-
+| Method   |     endpoint            | status code
+|----------|-------------------------|-----
+| GET      | /articles/:id           | 200
+| GET      | /articles/?title=string | 200
+| GET      | /articles/?order=string | 200
 
 #### Response
 
@@ -146,9 +147,11 @@ The request has no body response.
 
 <hr/>
 
-| Method   |   endpoint    | status code
-|----------|---------------|-----
-| GET      | /hero/:id     | 200
+| Method   |   endpoint                | status code
+|----------|---------------------------|-----
+| GET      | /hero/:id                 | 200
+| GET      | /hero/?content=string | 200
+| GET      | /hero/?order=string   | 200
 
 #### Response
 
@@ -205,8 +208,8 @@ The request has no body response.
 ## `/contacts`
 
 | Method   |   endpoint    | status code
-|----------|---------------|-----
-| GET      | /contacts     | 200
+|----------|-------------------------|-----
+| GET      | /contacts               | 200
 
 ### Response 
 ```
@@ -227,9 +230,11 @@ The request has no body response.
 
 <hr/>
 
-| Method   |   endpoint    | status code
-|----------|---------------|-----
-| GET      | /contacts/:id | 200
+| Method   |   endpoint              | status code
+|----------|-------------------------|-----
+| GET      | /contacts/:id           | 200
+| GET      | /contacts/?name=string  | 200
+| GET      | /contacts/?order=string | 200
 
 
 ### Response
