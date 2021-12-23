@@ -4,12 +4,12 @@ Desafio realizado utilizando as seguintes tecnologias:
 * Node.JS; 
 * Sequelize; 
 * Express; 
-* Postgres;
+* Mysql;
 * Sinon.JS;
 * Chai;
 * Sequelize-test-helpers.
 
-### Instale as dependências
+### Instale as dependências e adicione as variáveis de ambiente para acessar o banco
 `npm install`
 ### Criar o banco
 `npx sequelize db:create`
@@ -25,6 +25,7 @@ Desafio realizado utilizando as seguintes tecnologias:
 `npm start`
 
 ### Rodar os tests 
+* Não é necessário rodar a API no momento do teste. O próprio chai-http, subirá a API. <br><br>
 `npm test`
 
 
