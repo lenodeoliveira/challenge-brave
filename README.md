@@ -80,7 +80,7 @@ Desafio realizado utilizando as seguintes tecnologias:
 
 | Method   |     endpoint  | status code
 |----------|---------------|-----
-| POST     | /articles     | 204
+| POST     | /articles     | 201
 
 
 #### Parameters
